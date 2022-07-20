@@ -86,6 +86,25 @@ class LinkedList {
       cur = cur.next;
     }
   }
+
+  reverse() {
+
+    if(!this.head.next) return this.head
+
+    let first = this.head;
+    this.tail = this.head;
+    let second = first.next;
+
+    while (second) {
+      let tmp = second.next;
+      second.next = first;
+      first = second
+      second = tmp;
+    }
+    this.head.next = null;
+    this.head = first;
+    return this;
+  }
 }
 
 const ll = new LinkedList(0);
@@ -94,9 +113,6 @@ ll.append(5);
 ll.append(10);
 
 ll.append(15);
-ll.append(20);
-ll.append(25);
-ll.append(30);
-console.log(ll.remove(0));
 
+ll.reverse();
 console.log(ll.printList());
