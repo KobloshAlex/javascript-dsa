@@ -23,9 +23,6 @@ class Stack {
     this.bottom = newNode;
     this.length++;
   }
-  // 3  <- top
-  // 2
-  // 1
   pop() {
     if (!this.top) return null;
 
